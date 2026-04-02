@@ -59,79 +59,38 @@ RAM: 16 GB
 Diskas: 512 GB NVMe SSD
 
 
-
-2 tyrimas: duomenų apdorojimas:
-Duomenų nuskaitymas iš failo;
-Studentų rūšiavimas į dvi grupes/kategorijas (į atskirus konteinerius);
-Surūšiuotų studentų išvedimas į du naujus failus.
-Visos programos veikimo laikas.
-
 REZULTATAI:
 
- 1 TYRIMAS — Failu kurimo sparta
+ | Failo versija(2 strategija):        | 1000000.txt                | 10000000.txt               |
+|-------------------------------------|----------------------------|----------------------------|
+| Klasės:                             |                            |                            |
+| Nuskaitymo laikas (s)               | 0.6729 s                   | 7.4083 s                   |
+| Rūšiavimo laikas (s)                | 0.0740 s                   | 0.8984 s                   |
+| Skirstymo laikas (s)                | 0.0349 s                   | 0.3249 s                   |
+| Struktūra:                          |                            |                            |
+| Nuskaitymo laikas (s)               | 0.6639 s                   | 6.8750 s                   |
+| Rūšiavimo laikas (s)                | 0.0818 s                   | 0.9278 s                   |
+| Skirstymo laikas (s)                | 0.0291 s                   | 0.4319 s                   |
+| Klasės tikrinimas naudojant "Flag": | 1000000.txt                | 10000000.txt               |
+| -O1 Nuskaitymo laikas (s):          | 0.7048 s                   | 7.3539 s                   |
+| -O1 Rusiavimo laikas (s):           | 0.1545 s                   | 1.7485 s                   |
+| -O1 Skirstymo laikas (s):           | 0.0282 s                   | 0.4577 s                   |
+| -O2 Nuskaitymo laikas (s):          | 0.6814 s                   | 7.1690 s                   |
+| -O2 Rusiavimo laikas (s):           | 0.1562 s                   | 1.7997 s                   |
+| -O2 Skirstymo laikas (s):           | 0.0286 s                   | 0.5442 s                   |
+| -O3 Nuskaitymo laikas (s):          | 0.6822 s                   | 6.9968 s                   |
+| -O3 Rusiavimo laikas (s):           | 0.1547 s                   | 1.8515 s                   |
+| -O3 Skirstymo laikas (s):           | 0.0266 s                   | 0.4318 s                   |
+| -O1 .exe failo dydis: 83KB          | -O2 .exe failo dydis: 84KB | -O3 .exe failo dydis: 91KB |
 
-1000 irasu failo kurimo laikas: 0.00373712
-10000 irasu failo kurimo laikas: 0.0206178
-100000 irasu failo kurimo laikas: 0.112169
-1000000 irasu failo kurimo laikas: 0.895016
-10000000 irasu failo kurimo laikas: 9.04963
 
-🧾 REZULTATAI.1 — Failų kūrimas
 
-Failų generavimo laikas didėja beveik proporcingai įrašų kiekiui.
-Mažiems failams skirtumas minimalus, bet su 10M įrašų pasiekia ~9 s.
+Tarp klasių ir struktūrų esminio greitaveikos skirtumo nėra, rezultatai beveik identiški.
+Optimizavimo lygis -O3 efektyviausias apdorojant 10 mln. įrašų, ypač paspartinant duomenų nuskaitymą.
+Skirtumas tarp -O1 ir -O2 rūšiavimo greičio yra minimalus arba paklaidos ribose.
+Padidinus duomenų kiekį 10 kartų, rūšiavimo laikas išauga daugiau nei 20 kartų dėl algoritmo sudėtingumo.
+Didžiausią įtaką programos našumui turi duomenų kiekis ir pasirinktas optimizavimo lygis, o ne duomenų tipas.
 
-2 TYRIMAS - Duomenu apdorojimas
-| Failo dydis:                       | 1000        | 10000     | 100000   | 1000000  | 10000000 |
-|------------------------------------|-------------|-----------|----------|----------|----------|
-| Failo nuskaitymo laikas(s):        | 0.0016515   | 0.0165995 | 0.100474 | 0.964666 | 10.647   |
-| Studentų skirstymo laikas(s):      | 0.000661208 | 0.0110059 | 0.050126 | 0.503981 | 4.96271  |
-| Įrašymo į failus laikas(s):        | 0.00734433  | 0.0344782 | 0.222286 | 2.22069  | 25.1476  |
-| Visos programos veikimo laikas(s): | 0.00967396  | 0.062123  | 0.37293  | 3.68938  | 40.7573  |
-
-⚙️ REZULTATAI.2 — Duomenų apdorojimas
-
-Didžiausią laiko dalį sudaro failų skaitymas ir rašymas.
-Skaičiavimai (rūšiavimas, skirstymas) yra žymiai greitesni už I/O operacijas.
-
-3 TYRIMAS - Skirtingų konteinerių naudojimas.
-
-| Failo dydis:                                   | 1000.txt | 10000.txt | 100000.txt | 1000000.txt | 10000000.txt |
-|------------------------------------------------|----------|-----------|------------|-------------|--------------|
-| Duomenų nuskaitymas iš failų(vector):             | 0.0030 s | 0.0102 s  | 0.0729 s   | 0.6431 s    | 7.1492 s     |
-| Duomenų rūšiavimas didėjimo tvarka(vector):       | 0.0002 s | 0.0021 s  | 0.0082 s   | 0.0808 s    | 1.0035 s     |
-| Studentų skirstymas į dvi kategorijas (vector):    | 0.0001 s | 0.0006 s  | 0.0018 s   | 0.0243 s    | 0.2549 s     |
-| Duomenų nuskaitymas iš failų(deque):           | 0.0025 s | 0.0095 s  | 0.0714 s   | 0.6387 s    | 6.5077 s     |
-| Duomenų rūšiavimas didėjimo tvarka(deque):     | 0.0003 s | 0.0022 s  | 0.0101 s   | 0.1026 s    | 1.0970 s     |
-| Studentų skirstymas į dvi kategorijas (deque): | 0.0000 s | 0.0004 s  | 0.0019 s   | 0.0244 s    | 0.2338 s     |
-| Duomenų nuskaitymas iš failų(list):            | 0.0028 s | 0.0102 s  | 0.0701 s   | 0.6469 s    | 6.5776 s     |
-| Duomenų rūšiavimas didėjimo tvarka(list):      | 0.0002 s | 0.0019 s  | 0.0174 s   | 0.4894 s    | 8.5884 s     |
-| Studentų skirstymas į dvi kategorijas (list):  | 0.0001 s | 0.0004 s  | 0.0084 s   | 0.1203 s    | 1.2879 s     |
-
-📦 REZULTATAI.3 — Konteineriai
-
-deque ir vector veikia panašiai, tačiau list stipriai atsilieka rūšiavime.
-Optimaliausias bendram naudojimui – std::deque.
-
-4 TYRIMAS - 3 grupavimo strategijų taikymas.
-
-| Failo dydis:          | 1000.txt  | 10000.txt | 100000.txt | 1000000.txt  | 10000000.txt |
-|-----------------------|-----------|-----------|------------|--------------|--------------|
-| 1 Strategija (vector) | 0.00008 s | 0.00072 s | 0.00272 s  | 0.03569 s    | 3.20373      |
-| 2 Strategija (vector) | 0.00105 s | 0.11505 s | 9.13686 s  | 1065.17006 s | >15 min      |
-| 3 Strategija (vector) | 0.00002 s | 0.00012 s | 0.00164 s  | 0.01999 s    |      -       |
-| 1 Strategija (deque)  | 0.00005 s | 0.00045 s | 0.00213 s  | 0.02117 s    | 0.33282 s    |
-| 2 Strategija (deque)  | 0.00165 s | 0.06658 s | 4.29863 s  | 455.74734 s  | >15 min      |
-| 3 Strategija (deque)  | 0.00016 s | 0.00034 s | 0.00295 s  | 0.03310 s    |      -       |
-| 1 Strategija (list)   | 0.00007 s | 0.00059 s | 0.02725 s  | 0.00264 s    | 0.02725 s    |
-| 2 Strategija (list)   | 0.00006 s | 0.00041 s | 0.02560 s  | 0.00251 s    | 0.02560 s    |
-| 3 Strategija (list)   | 0.00003 s | 0.00018 s | 0.01677 s  | 0.00082 s    | 0.01677 s    |
-
-🔬 REZULTATAI.4 — Strategijos
-
-2 strategija (vector) yra labai neefektyvi ir lėta.
-
-3 strategija (stable_partition) – greičiausia ir rekomenduojama visais atvejais.
 
 
 🚀 Getting Started
