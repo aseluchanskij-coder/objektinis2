@@ -71,23 +71,26 @@ void apdorojimo_testas(const string& failas) {
 } 
 void strategija1(vector<studentas>& grupe, vector<studentas>& vargsai, vector<studentas>& kietuoliai) {
     for (const auto& s : grupe) {
-        if (s.rez < 5.0) vargsai.push_back(s);
+        if (s.getRez() < 5.0) vargsai.push_back(s);
         else kietuoliai.push_back(s);
     }
-}//pataisyti, trinti is galo ir popint vektoriu,lista,deka.
+}
+
+//cia pataisiau
 void strategija2(vector<studentas>& grupe, vector<studentas>& vargsai){
     sort(grupe.begin(), grupe.end(), pagalRez);
 
-    while (!grupe.empty() && grupe.back().rez < 5.0) {
+    while (!grupe.empty() && grupe.back().getRez() < 5.0) {
         vargsai.push_back(grupe.back());
         grupe.pop_back();
     }
 }
+
 void strategija3(vector<studentas>& grupe, vector<studentas>& vargsai) {
     auto it = std::stable_partition(grupe.begin(), grupe.end(), [](const studentas& s) {
-        return s.rez >= 5.0;
+        return s.getRez() >= 5.0;
     });
-    
+
     vargsai.assign(it, grupe.end());
     grupe.erase(it, grupe.end());
 }

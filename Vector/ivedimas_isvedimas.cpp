@@ -43,27 +43,33 @@ void skaitymas(const string &failo_pav, vector<studentas> &grupe) {
         studentas A;
         int x, sum = 0;
 
-        fs >> A.vardas >> A.pavarde;
+        string v, p;
+        fs >> v >> p;
+        A.setVardas(v);
+        A.setPavarde(p);
 
         vector<int> temp;
         while (fs >> x) temp.push_back(x);
 
         if (temp.size() < 2) continue;
 
-        A.egz = temp.back();
+        A.setEgz(temp.back());
         temp.pop_back();
-        A.paz = temp;
 
-        for (int p : A.paz) sum += p;
+        for (int paz : temp) {
+            A.pridetiPazymi(paz);
+            sum += paz;
+        }
 
-        A.tipas = tipas;
-        skaiciuoti(A, sum);
+        A.setTipas(tipas);
+        A.skaiciuoti(sum);
         grupe.push_back(A);
     }
 
     failas.close();
     cout << "Duomenys nuskaityti is failo!\n";
 }
+
 void skaitymas_rez(const string &failo_pav, vector<studentas> &grupe) {
     std::ifstream failas("duomenys/" + failo_pav);
     if (!failas) {
@@ -73,7 +79,6 @@ void skaitymas_rez(const string &failo_pav, vector<studentas> &grupe) {
     grupe.clear();
 
     string line;
-
     getline(failas, line);
     getline(failas, line);
 
@@ -81,9 +86,15 @@ void skaitymas_rez(const string &failo_pav, vector<studentas> &grupe) {
         std::stringstream fs(line);
         studentas A;
 
-        fs >> A.vardas >> A.pavarde >> A.rez;
+        string v, p;
+        double r;
 
-        A.tipas = "vid"; 
+        fs >> v >> p >> r;
+
+        A.setVardas(v);
+        A.setPavarde(p);
+        A.setRez(r);
+        A.setTipas("vid");
 
         grupe.push_back(A);
     }
@@ -102,21 +113,22 @@ void input(vector<studentas> &grupe) {
             skaitymas("duomenys/kursiokai.txt", grupe);
             continue;
         }
+
         if (menu == 5) {
-    string failo_pav;
+            string failo_pav;
 
-    cout << "Iveskite rezultatu failo pavadinima: ";
-    cin >> failo_pav;
+            cout << "Iveskite rezultatu failo pavadinima: ";
+            cin >> failo_pav;
 
-    try {
-        skaitymas_rez(failo_pav, grupe);
-    }
-    catch (const std::exception &e) {
-        cout << "Klaida: " << e.what() << endl;
-    }
+            try {
+                skaitymas_rez(failo_pav, grupe);
+            }
+            catch (const std::exception &e) {
+                cout << "Klaida: " << e.what() << endl;
+            }
 
-    continue;
-}
+            continue;
+        }
 
         if (menu == 3) {
             cout << "Kiek studentu generuoti? ";
@@ -129,24 +141,27 @@ void input(vector<studentas> &grupe) {
                 cout << "Klaida! Pasirinkite 'vid' arba 'med': ";
                 cin >> bendras_tipas;
             }
+
             cin.ignore(10000, '\n');
+
             for (int k = 0; k < kiek_stud; k++) {
                 studentas A;
                 int sum = 0;
 
-                A.vardas = random_vardas();
-                A.pavarde = random_pavarde();
+                A.setVardas(random_vardas());
+                A.setPavarde(random_pavarde());
 
                 int kiek = rand() % 5 + 3;
                 for (int i = 0; i < kiek; i++) {
                     int r = random_paz();
-                    A.paz.push_back(r);
+                    A.pridetiPazymi(r);
                     sum += r;
                 }
-                A.egz = random_paz();
-                A.tipas = bendras_tipas;
 
-                skaiciuoti(A, sum);
+                A.setEgz(random_paz());
+                A.setTipas(bendras_tipas);
+
+                A.skaiciuoti(sum);
                 grupe.push_back(A);
             }
             continue;
@@ -156,149 +171,77 @@ void input(vector<studentas> &grupe) {
         int sum = 0;
 
         if (menu == 1 || menu == 2) {
+            string v;
             cout << "Iveskite studento varda (arba 0): ";
-            cin >> A.vardas;
-            if (A.vardas == "0") break;
-            while (!string_nusk(A.vardas)) {
-                cout << "Klaida! Vardas negali buti skaicius: ";
-                cin >> A.vardas;
-            }
+            cin >> v;
+            if (v == "0") break;
 
-            cout << "Iveskite studento pavarde: ";
-            cin >> A.pavarde;
-            while (!string_nusk(A.pavarde)) {
-                cout << "Klaida! Pavarde negali buti skaicius: ";
-                cin >> A.pavarde;
+            while (!string_nusk(v)) {
+                cout << "Klaida! Vardas negali buti skaicius: ";
+                cin >> v;
             }
+            A.setVardas(v);
+
+            string p;
+            cout << "Iveskite studento pavarde: ";
+            cin >> p;
+
+            while (!string_nusk(p)) {
+                cout << "Klaida! Pavarde negali buti skaicius: ";
+                cin >> p;
+            }
+            A.setPavarde(p);
         }
 
         if (menu == 1) {
             cout << "Iveskite pazymius (0 - baigti): ";
             int temp;
+
             while (true) {
                 temp = skaiciaus_nusk();
                 if (temp == 0) break;
                 if (temp < 1 || temp > 10) continue;
-                A.paz.push_back(temp);
+
+                A.pridetiPazymi(temp);
                 sum += temp;
             }
+
             cout << "Iveskite egzamino bala: ";
-            A.egz = skaiciaus_nusk();
+            A.setEgz(skaiciaus_nusk());
         }
 
         if (menu == 2) {
             int kiek = rand() % 5 + 3;
             for (int i = 0; i < kiek; i++) {
                 int r = random_paz();
-                A.paz.push_back(r);
+                A.pridetiPazymi(r);
                 sum += r;
             }
-            A.egz = random_paz();
+            A.setEgz(random_paz());
         }
 
+        string t;
         cout << "Skaiciuoti su vidurkiu (vid) ar mediana (med)? ";
-        cin >> A.tipas;
-        while (A.tipas != "vid" && A.tipas != "med"){
+        cin >> t;
+
+        while (t != "vid" && t != "med") {
             cout << "Klaida! Pasirinkite 'vid' arba 'med': ";
-            cin >> A.tipas;
+            cin >> t;
         }
+
         cin.ignore(10000, '\n');
-        skaiciuoti(A, sum);
+
+        A.setTipas(t);
+        A.skaiciuoti(sum);
         grupe.push_back(A);
     }
 }
 
-void rusiuotistud(vector<studentas> &grupe) {
-    cout << "Rikiuoti pagal:" << endl;
-    cout << "1 - Varda" << endl;
-    cout << "2 - Pavarde" << endl;
-    cout << "3 - Galutinis (vid.)" << endl;
-    cout << "4 - Galutinis (med.)" << endl;
-    cout << "Pasirinkimas: ";
-
-    int pasirinkimas = skaiciaus_nusk();
-    while (pasirinkimas < 1 || pasirinkimas > 4) {
-        cout << "Klaida! Pasirinkite 1, 2, 3 arba 4: ";
-        pasirinkimas = skaiciaus_nusk();
-    }
-
-    if (pasirinkimas == 1)
-        sort(grupe.begin(), grupe.end(), pagalVarda);
-    else if (pasirinkimas == 2)
-        sort(grupe.begin(), grupe.end(), pagalPavarde);
-    else if (pasirinkimas == 3)
-        sort(grupe.begin(), grupe.end(), pagalVid);
-    else if (pasirinkimas == 4)
-        sort(grupe.begin(), grupe.end(), pagalMed);
-
-    try {
-        cout << "Pasirinkite isvesti duomenis i konsole (1) ar i faila (2) ar i padalinti i vargsus ir kietulius bei isvesti i failus (3): ";
-        pasirinkimas = skaiciaus_nusk();
-
-        if (pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3) {
-            throw std::runtime_error("Pasirinkimas turi buti 1, 2 arba 3!");
-        }
-    }
-    catch (const std::exception& e) {
-        cout << "Klaida: " << e.what() << endl;
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return;
-    }
-
-    if (pasirinkimas == 1) {
-        output(cout, grupe);
-    }
-    else if (pasirinkimas == 2) {
-        std::string failo_pav;
-        std::cout << "Iveskite failo pavadinima (pvz., 1000.txt, enter – numatytasis Rezultatai.txt): ";
-
-        std::cin.ignore(1, '\n');
-        std::getline(std::cin, failo_pav);
-
-        if (failo_pav.empty()) {
-            failo_pav = "Rezultatai.txt"; 
-        } else if (failo_pav.find('.') == std::string::npos) {
-            failo_pav += ".txt"; 
-        }
-
-        std::ofstream out(failo_pav);
-        if (!out) {
-            std::cout << "Nepavyko sukurti failo: " << failo_pav << "\n";
-            return;
-        }
-        output(out, grupe);
-        out.close();
-
-        cout << "Duomenys issaugoti faile: " << failo_pav << endl;
-    }
-    else if (pasirinkimas == 3) {
-        if (grupe.empty()) {
-            std::cout << "Nera studentu nuskaitytų! Pirmiausia nuskaitykite duomenis.\n";
-            return;
-        }
-
-        std::vector<studentas> vargsai, kietuoliai;
-        padalinti_studentus(grupe, vargsai, kietuoliai);
-
-        std::ofstream f_vargsai("duomenys/vargsai.txt");
-        output(f_vargsai, vargsai);
-        f_vargsai.close();
-
-        std::ofstream f_kietuoliai("duomenys/kietuoliai.txt");
-        output(f_kietuoliai, kietuoliai);
-        f_kietuoliai.close();
-
-        std::cout << "Studentai padalinti i failus:\n";
-        std::cout << "vargsai.txt\n";
-        std::cout << "kietuoliai.txt\n";
-    }
-}
 void padalinti_studentus(const std::vector<studentas> &grupe,
                          std::vector<studentas> &vargsai,
                          std::vector<studentas> &kietuoliai) {
     for (const auto &A : grupe) {
-        if (A.rez < 5.0)
+        if (A.getRez() < 5.0)
             vargsai.push_back(A);
         else
             kietuoliai.push_back(A);
@@ -314,15 +257,24 @@ void output(std::ostream &out, const std::vector<studentas> &grupe) {
     out << "----------------------------------------------------------------------------" << endl;
 
     for (const auto &A : grupe) {
-        out << left << setw(20) << A.vardas
-            << left << setw(25) << A.pavarde;
+        out << left << setw(20) << A.getVardas()
+            << left << setw(25) << A.getPavarde();
 
-        if (A.tipas == "vid") {
-            out << setw(20) << fixed << setprecision(2) << A.rez
+        if (A.getTipas() == "vid") {
+            out << setw(20) << fixed << setprecision(2) << A.getRez()
                 << setw(20) << "-" << endl;
         } else {
             out << setw(20) << "-"
-                << setw(20) << fixed << setprecision(2) << A.rez << endl;
+                << setw(20) << fixed << setprecision(2) << A.getRez() << endl;
         }
     }
-} 
+}
+void rusiuotistud(vector<studentas> &grupe) {
+    if (grupe.empty()) return;
+
+    if (grupe[0].getTipas() == "vid") {
+        sort(grupe.begin(), grupe.end(), pagalVid);
+    } else {
+        sort(grupe.begin(), grupe.end(), pagalMed);
+    }
+}

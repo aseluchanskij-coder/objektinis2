@@ -3,36 +3,37 @@
 
 using std::sort;
 
-void skaiciuoti(studentas &A, int sum) {
+void studentas::skaiciuoti(int sum) {
     double skaicius;
-    if (A.tipas == "vid") {
-        skaicius = sum * 1.0 / A.paz.size();
+    if (tipas == "vid") {
+        skaicius = sum * 1.0 / paz.size();
     } else {
-        sort(A.paz.begin(), A.paz.end());
-        int n = A.paz.size();
+        sort(paz.begin(), paz.end());
+        int n = paz.size();
         if (n % 2 == 0)
-            skaicius = (A.paz[n/2 - 1] + A.paz[n/2]) / 2.0;
+            skaicius = (paz[n/2 - 1] + paz[n/2]) / 2.0;
         else
-            skaicius = A.paz[n/2];
+            skaicius = paz[n/2];
     }
-    A.rez = 0.4 * skaicius + 0.6 * A.egz;
+    rez = 0.4 * skaicius + 0.6 * egz;
 }
 
 bool pagalVarda(const studentas &a, const studentas &b) {
-    return a.vardas < b.vardas;
+    return a.getVardas() < b.getVardas();
 }
 
 bool pagalPavarde(const studentas &a, const studentas &b) {
-    return a.pavarde < b.pavarde;
+    return a.getPavarde() < b.getPavarde();
 }
 
 bool pagalVid(const studentas &a, const studentas &b) {
-    return (a.tipas == "vid" ? a.rez : -1) < (b.tipas == "vid" ? b.rez : -1);
+    return (a.getTipas() == "vid" ? a.getRez() : -1) < (b.getTipas() == "vid" ? b.getRez() : -1);
 }
 
 bool pagalMed(const studentas &a, const studentas &b) {
-    return (a.tipas == "med" ? a.rez : -1) > (b.tipas == "med" ? b.rez : -1);
+    return (a.getTipas() == "med" ? a.getRez() : -1) > (b.getTipas() == "med" ? b.getRez() : -1);
 }
-bool pagalRez(const studentas &a, const studentas &b) {
-    return a.rez > b.rez; }
 
+bool pagalRez(const studentas &a, const studentas &b) {
+    return a.getRez() > b.getRez();
+}

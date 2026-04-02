@@ -3,35 +3,69 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
+#include <fstream>
+#include <algorithm>
 #include "studentas.h"
 #include "ivedimas_isvedimas.h"
 #include "testavimas.h"
 
 using namespace std::chrono;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::vector;
+using std::string;
+
 int main() {
-
-    /*
     vector<studentas> grupe;
-
-    auto start = std::chrono::high_resolution_clock::now();
+/*
+    auto start = high_resolution_clock::now();
 
     try {
         input(grupe);
 
         if (!grupe.empty()) {
-            rusiuotistud(grupe);  
+            cout << "\nPagal ka rusiuoti?\n1 - Varda\n2 - Pavarde\n3 - Rezultata\nPasirinkimas: ";
+            int r_pasirinkimas;
+            cin >> r_pasirinkimas;
+
+            if (r_pasirinkimas == 1) std::sort(grupe.begin(), grupe.end(), pagalVarda);
+            else if (r_pasirinkimas == 2) std::sort(grupe.begin(), grupe.end(), pagalPavarde);
+            else std::sort(grupe.begin(), grupe.end(), pagalRez);
+
+            cout << "\nKur isvesti rezultatus?\n1 - I konsole\n2 - I faila (rezultatai.txt)\n3 - Padalinti i dvi grupes (vargsai.txt ir kietuoliai.txt)\nPasirinkimas: ";
+            int i_pasirinkimas;
+            cin >> i_pasirinkimas;
+
+            if (i_pasirinkimas == 1) {
+                output(cout, grupe);
+            } 
+            else if (i_pasirinkimas == 2) {
+                std::ofstream f("rezultatai.txt");
+                output(f, grupe);
+                f.close();
+                cout << "Duomenys surasyti i rezultatai.txt" << endl;
+            }
+            else if (i_pasirinkimas == 3) {
+                vector<studentas> vargsai, kietuoliai;
+                padalinti_studentus(grupe, vargsai, kietuoliai);
+                
+                std::ofstream f1("vargsai.txt"), f2("kietuoliai.txt");
+                output(f1, vargsai);
+                output(f2, kietuoliai);
+                f1.close(); f2.close();
+                cout << "Studentai padalinti i vargsai.txt ir kietuoliai.txt" << endl;
+            }
         }
     }
     catch (const std::exception &e) {
-        std::cout << "Klaida: " << e.what() << std::endl;
+        cout << "Klaida: " << e.what() << endl;
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-
-    std::chrono::duration<double> elapsed = end - start;
-    std::cout << "Visos programos veikimo laikas yra: "
-              << elapsed.count() << " sekundes\n";
-              */
+    auto end = high_resolution_clock::now();
+    duration<double> elapsed = end - start;
+    cout << "\nVisos programos veikimo laikas yra: " << elapsed.count() << " sekundes" << endl;
+    */
     /*
     std::cout << "1 TYRIMAS – Failu kurimo sparta\n";
 
@@ -46,11 +80,11 @@ int main() {
 
     apdorojimo_testas("1000.txt");
     apdorojimo_testas("10000.txt");
-    apdorojimo_testas("100000.txt");
+    apdorojimo_testas("100000.txt");*/
     apdorojimo_testas("1000000.txt");
     apdorojimo_testas("10000000.txt");
-    */
-   vector<int> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
+    /*
+   vector<int> kiekiai = {1000000, 10000000};
 
     for (int kiekis : kiekiai) {
         string failas = std::to_string(kiekis) + ".txt";
@@ -63,8 +97,8 @@ int main() {
         }
 
         std::cout << "\n--- REZULTATAI SU " << kiekis << " IRASU ---" << std::endl;
-
-        {
+*/
+      /*  {
             vector<studentas> grupe = pradine_grupe;
             vector<studentas> v1, k1;
             auto s = high_resolution_clock::now();
@@ -72,8 +106,8 @@ int main() {
             auto e = high_resolution_clock::now();
             std::cout << "1 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
         }
-
-        {
+        */
+      /*  {
             vector<studentas> grupe = pradine_grupe;
             vector<studentas> v2;
             auto s = high_resolution_clock::now();
@@ -81,7 +115,8 @@ int main() {
             auto e = high_resolution_clock::now();
             std::cout << "2 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
         }
-
+        */
+/*
         {
             vector<studentas> grupe = pradine_grupe;
             vector<studentas> v3;
@@ -90,7 +125,8 @@ int main() {
             auto e = high_resolution_clock::now();
             std::cout << "3 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
         }
-    }
+            
+    }*/
 
     return 0;
 }

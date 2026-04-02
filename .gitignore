@@ -41,6 +41,6 @@
 *.dwo
 *.txt
 *.exe
-.DS_Store/
+.DS_Store
 /build/
 /duomenys/
