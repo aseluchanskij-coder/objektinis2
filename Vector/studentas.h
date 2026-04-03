@@ -15,6 +15,7 @@ private:
 
 public:
     studentas() : egz(0), rez(0.0) {}
+    ~studentas() {}
 
     std::string getVardas() const { return vardas; }
     std::string getPavarde() const { return pavarde; }
