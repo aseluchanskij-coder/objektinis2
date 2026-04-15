@@ -61,28 +61,38 @@ Diskas: 512 GB NVMe SSD
 
 REZULTATAI:
 
- | Failo versija(2 strategija):        | 1000000.txt                | 10000000.txt               |
-|-------------------------------------|----------------------------|----------------------------|
-| Klasės:                             |                            |                            |
-| Nuskaitymo laikas (s)               | 0.6729 s                   | 7.4083 s                   |
-| Rūšiavimo laikas (s)                | 0.0740 s                   | 0.8984 s                   |
-| Skirstymo laikas (s)                | 0.0349 s                   | 0.3249 s                   |
-| Struktūra:                          |                            |                            |
-| Nuskaitymo laikas (s)               | 0.6639 s                   | 6.8750 s                   |
-| Rūšiavimo laikas (s)                | 0.0818 s                   | 0.9278 s                   |
-| Skirstymo laikas (s)                | 0.0291 s                   | 0.4319 s                   |
-| Klasės tikrinimas naudojant "Flag": | 1000000.txt                | 10000000.txt               |
-| -O1 Nuskaitymo laikas (s):          | 0.7048 s                   | 7.3539 s                   |
-| -O1 Rusiavimo laikas (s):           | 0.1545 s                   | 1.7485 s                   |
-| -O1 Skirstymo laikas (s):           | 0.0282 s                   | 0.4577 s                   |
-| -O2 Nuskaitymo laikas (s):          | 0.6814 s                   | 7.1690 s                   |
-| -O2 Rusiavimo laikas (s):           | 0.1562 s                   | 1.7997 s                   |
-| -O2 Skirstymo laikas (s):           | 0.0286 s                   | 0.5442 s                   |
-| -O3 Nuskaitymo laikas (s):          | 0.6822 s                   | 6.9968 s                   |
-| -O3 Rusiavimo laikas (s):           | 0.1547 s                   | 1.8515 s                   |
-| -O3 Skirstymo laikas (s):           | 0.0266 s                   | 0.4318 s                   |
-| -O1 .exe failo dydis: 83KB          | -O2 .exe failo dydis: 84KB | -O3 .exe failo dydis: 91KB |
-
+| Failo versija(2 strategija):            | 1000000.txt                | 10000000.txt               |
+|-----------------------------------------|----------------------------|----------------------------|
+| Klasės:                                 |                            |                            |
+| Nuskaitymo laikas (s)                   | 0.6729 s                   | 7.4083 s                   |
+| Rūšiavimo laikas (s)                    | 0.0740 s                   | 0.8984 s                   |
+| Skirstymo laikas (s)                    | 0.0349 s                   | 0.3249 s                   |
+| Struktūra:                              |                            |                            |
+| Nuskaitymo laikas (s)                   | 0.6639 s                   | 6.8750 s                   |
+| Rūšiavimo laikas (s)                    | 0.0818 s                   | 0.9278 s                   |
+| Skirstymo laikas (s)                    | 0.0291 s                   | 0.4319 s                   |
+| Klasės tikrinimas naudojant "Flag":     | 1000000.txt                | 10000000.txt               |
+| -O1 Nuskaitymo laikas (s):              | 0.7048 s                   | 7.3539 s                   |
+| -O1 Rusiavimo laikas (s):               | 0.1545 s                   | 1.7485 s                   |
+| -O1 Skirstymo laikas (s):               | 0.0282 s                   | 0.4577 s                   |
+| -O2 Nuskaitymo laikas (s):              | 0.6814 s                   | 7.1690 s                   |
+| -O2 Rusiavimo laikas (s):               | 0.1562 s                   | 1.7997 s                   |
+| -O2 Skirstymo laikas (s):               | 0.0286 s                   | 0.5442 s                   |
+| -O3 Nuskaitymo laikas (s):              | 0.6822 s                   | 6.9968 s                   |
+| -O3 Rusiavimo laikas (s):               | 0.1547 s                   | 1.8515 s                   |
+| -O3 Skirstymo laikas (s):               | 0.0266 s                   | 0.4318 s                   |
+| -O1 .exe failo dydis: 83KB              | -O2 .exe failo dydis: 84KB | -O3 .exe failo dydis: 91KB |
+| Struktūros tikrinimas naudojant "Flag": | 1000000.txt                | 10000000.txt               |
+| -O1 Nuskaitymo laikas (s):              | 0.7308 s                   | 7.8239 s                   |
+| -O1 Rusiavimo laikas (s):               | 0.1965 s                   | 1.8785 s                   |
+| -O1 Skirstymo laikas (s):               | 0.0382 s                   | 0.4577 s                   |
+| -O2 Nuskaitymo laikas (s):              | 0.6814 s                   | 7.8690 s                   |
+| -O2 Rusiavimo laikas (s):               | 0.1562 s                   | 1.5997 s                   |
+| -O2 Skirstymo laikas (s):               | 0.0286 s                   | 0.2442 s                   |
+| -O3 Nuskaitymo laikas (s):              | 0.6822 s                   | 7.0168 s                   |
+| -O3 Rusiavimo laikas (s):               | 0.1547 s                   | 1.8515 s                   |
+| -O3 Skirstymo laikas (s):               | 0.0346 s                   | 0.5318 s                   |
+| -O1 .exe failo dydis: 84KB              | -O2 .exe failo dydis: 85KB | -O3 .exe failo dydis: 90KB |
 
 
 Tarp klasių ir struktūrų esminio greitaveikos skirtumo nėra, rezultatai beveik identiški.
