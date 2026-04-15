@@ -15,7 +15,14 @@ private:
 
 public:
     studentas() : egz(0), rez(0.0) {}
-    ~studentas() {}
+    ~studentas() {
+    vardas.clear();
+    pavarde.clear();
+    paz.clear();    
+    egz = 0;
+    rez = 0.0;
+    tipas.clear();
+}
 
     std::string getVardas() const { return vardas; }
     std::string getPavarde() const { return pavarde; }
