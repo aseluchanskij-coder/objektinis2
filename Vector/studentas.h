@@ -39,7 +39,7 @@ public:
     void setTipas(const std::string &t) { tipas = t; }
     
     void pridetiPazymi(int p) { paz.push_back(p); }
-    void skaiciuoti(int sum); 
+    void skaiciuoti(int sum = 0); 
 };
 
     bool pagalVarda(const studentas &a, const studentas &b);

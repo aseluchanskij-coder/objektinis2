@@ -45,16 +45,15 @@ int main() {
 
             case 2: {
                 studentas s1;
-                cout << "Iveskite studenta (naudojamas >> operatorius):\n";
+                cout << "Iveskite studenta:\n";
                 cin >> s1;
                 
                 studentas s2 = s1; // Cop
                 studentas s3;
                 s3 = std::move(s1); // Mov
                 
-                cout << "\nIsvedimas naudojant << operatoriu:\n";
-                cout << "S3 (perkeltas is S1): " << s3 << endl;
-                cout << "S2 (kopija): " << s2 << endl;
+                cout << "Stud3 (perkeltas is S1): " << s3 << endl;
+                cout << "Stud2 (kopija): " << s2 << endl;
                 break;
             }
 

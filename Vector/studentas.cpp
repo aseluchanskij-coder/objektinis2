@@ -6,25 +6,36 @@
 using std::sort;
 
 studentas::~studentas() {
+    vardas.clear();
+    pavarde.clear();
     paz.clear();
-}
+    egz = 0;
+    rez = 0.0;
+    tipas.clear();
+}   
 
-void studentas::skaiciuoti(int sum) {
+void studentas::skaiciuoti(int isores_sum) {
     double skaicius = 0;
     if (paz.empty()) {
         rez = 0.6 * egz;
         return;
     }
 
+    int tikroji_suma = isores_sum;
+    if (tikroji_suma == 0) {
+        for (int p : paz) tikroji_suma += p;
+    }
+
     if (tipas == "vid") {
-        skaicius = (double)sum / paz.size();
+        skaicius = (double)tikroji_suma / paz.size();
     } else {
-        sort(paz.begin(), paz.end());
-        int n = paz.size();
+        std::vector<int> temp_paz = paz; 
+        std::sort(temp_paz.begin(), temp_paz.end());
+        int n = temp_paz.size();
         if (n % 2 == 0)
-            skaicius = (paz[n/2 - 1] + paz[n/2]) / 2.0;
+            skaicius = (temp_paz[n/2 - 1] + temp_paz[n/2]) / 2.0;
         else
-            skaicius = paz[n/2];
+            skaicius = temp_paz[n/2];
     }
     rez = 0.4 * skaicius + 0.6 * egz;
 }
