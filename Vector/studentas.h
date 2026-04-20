@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-
+#include <iostream>
 class studentas {
 private:
     std::string vardas;
@@ -15,14 +15,12 @@ private:
 
 public:
     studentas() : egz(0), rez(0.0) {}
-    ~studentas() {
-    vardas.clear();
-    pavarde.clear();
-    paz.clear();    
-    egz = 0;
-    rez = 0.0;
-    tipas.clear();
-}
+    ~studentas();
+
+    studentas(const studentas& other);
+    studentas& operator=(const studentas& other);
+    studentas(studentas&& other) noexcept;
+    studentas& operator=(studentas&& other) noexcept;
 
     std::string getVardas() const { return vardas; }
     std::string getPavarde() const { return pavarde; }
@@ -30,6 +28,9 @@ public:
     int getEgz() const { return egz; }
     double getRez() const { return rez; }
     const std::string& getTipas() const { return tipas; }
+
+    friend std::ostream& operator<<(std::ostream& os, const studentas& s);
+    friend std::istream& operator>>(std::istream& is, studentas& s);
 
     void setVardas(const std::string &v) { vardas = v; }
     void setPavarde(const std::string &p) { pavarde = p; }

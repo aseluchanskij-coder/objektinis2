@@ -1,12 +1,23 @@
 #include "studentas.h"
 #include <algorithm>
+#include <iomanip>
+#include <iostream>
 
 using std::sort;
 
+studentas::~studentas() {
+    paz.clear();
+}
+
 void studentas::skaiciuoti(int sum) {
-    double skaicius;
+    double skaicius = 0;
+    if (paz.empty()) {
+        rez = 0.6 * egz;
+        return;
+    }
+
     if (tipas == "vid") {
-        skaicius = sum * 1.0 / paz.size();
+        skaicius = (double)sum / paz.size();
     } else {
         sort(paz.begin(), paz.end());
         int n = paz.size();
@@ -16,6 +27,72 @@ void studentas::skaiciuoti(int sum) {
             skaicius = paz[n/2];
     }
     rez = 0.4 * skaicius + 0.6 * egz;
+}
+
+std::istream& operator>>(std::istream& is, studentas& s) {
+    std::cout << "Vardas: "; is >> s.vardas;
+    std::cout << "Pavarde: "; is >> s.pavarde;
+    std::cout << "Egzamino balas: "; is >> s.egz;
+    
+    int p, sum = 0;
+    s.paz.clear(); 
+    std::cout << "Iveskite pazymius (0 - baigti): ";
+    while (is >> p && p != 0) {
+        if (p > 0 && p <= 10) {
+            s.paz.push_back(p);
+            sum += p;
+        }
+    }
+    
+    if (s.tipas.empty()) s.tipas = "vid";
+    s.skaiciuoti(sum); 
+    
+    return is;
+}
+
+std::ostream& operator<<(std::ostream& os, const studentas& s) {
+    os << std::left << std::setw(15) << s.vardas 
+       << std::setw(15) << s.pavarde 
+       << std::fixed << std::setprecision(2) << s.rez;
+    return os;
+}
+
+studentas::studentas(const studentas& other) 
+    : vardas(other.vardas), pavarde(other.pavarde), paz(other.paz), 
+      egz(other.egz), rez(other.rez), tipas(other.tipas) {}
+
+studentas& studentas::operator=(const studentas& other) {
+    if (this != &other) {
+        vardas = other.vardas;
+        pavarde = other.pavarde;
+        paz = other.paz;
+        egz = other.egz;
+        rez = other.rez;
+        tipas = other.tipas;
+    }
+    return *this;
+}
+
+studentas::studentas(studentas&& other) noexcept 
+    : vardas(std::move(other.vardas)), pavarde(std::move(other.pavarde)), 
+      paz(std::move(other.paz)), egz(other.egz), rez(other.rez), tipas(std::move(other.tipas)) {
+    other.egz = 0;
+    other.rez = 0.0;
+}
+
+studentas& studentas::operator=(studentas&& other) noexcept {
+    if (this != &other) {
+        vardas = std::move(other.vardas);
+        pavarde = std::move(other.pavarde);
+        paz = std::move(other.paz);
+        egz = other.egz;
+        rez = other.rez;
+        tipas = std::move(other.tipas);
+
+        other.egz = 0;
+        other.rez = 0.0;
+    }
+    return *this;
 }
 
 bool pagalVarda(const studentas &a, const studentas &b) {

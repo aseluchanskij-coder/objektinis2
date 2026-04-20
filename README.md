@@ -51,7 +51,6 @@ Yra galimybė skaityti duomenis iš failo, taip pat juos rūšiuoti pagal vieną
 failų kūrimas ir jo uždarymas.
 
 
-📊 Performance Analysis
 🖥️ Testavimo aplinka
 OS: MacOS
 CPU: Apple silicon M1
@@ -101,11 +100,7 @@ Skirtumas tarp -O1 ir -O2 rūšiavimo greičio yra minimalus arba paklaidos ribo
 Padidinus duomenų kiekį 10 kartų, rūšiavimo laikas išauga daugiau nei 20 kartų dėl algoritmo sudėtingumo.
 Didžiausią įtaką programos našumui turi duomenų kiekis ir pasirinktas optimizavimo lygis, o ne duomenų tipas.
 
-
-
-🚀 Getting Started
-
-🔧 Reikalavimai
+ Reikalavimai
 
 🐧 Linux
 
