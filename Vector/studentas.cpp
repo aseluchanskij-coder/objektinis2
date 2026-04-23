@@ -6,8 +6,6 @@
 using std::sort;
 
 studentas::~studentas() {
-    vardas.clear();
-    pavarde.clear();
     paz.clear();
     egz = 0;
     rez = 0.0;
@@ -69,13 +67,11 @@ std::ostream& operator<<(std::ostream& os, const studentas& s) {
 }
 
 studentas::studentas(const studentas& other) 
-    : vardas(other.vardas), pavarde(other.pavarde), paz(other.paz), 
-      egz(other.egz), rez(other.rez), tipas(other.tipas) {}
+    : zmogus(other), paz(other.paz), egz(other.egz), rez(other.rez), tipas(other.tipas) {}
 
 studentas& studentas::operator=(const studentas& other) {
     if (this != &other) {
-        vardas = other.vardas;
-        pavarde = other.pavarde;
+        zmogus::operator=(other);
         paz = other.paz;
         egz = other.egz;
         rez = other.rez;
@@ -85,16 +81,14 @@ studentas& studentas::operator=(const studentas& other) {
 }
 
 studentas::studentas(studentas&& other) noexcept 
-    : vardas(std::move(other.vardas)), pavarde(std::move(other.pavarde)), 
-      paz(std::move(other.paz)), egz(other.egz), rez(other.rez), tipas(std::move(other.tipas)) {
+    : zmogus(std::move(other)), paz(std::move(other.paz)), egz(other.egz), rez(other.rez), tipas(std::move(other.tipas)) {
     other.egz = 0;
     other.rez = 0.0;
 }
 
 studentas& studentas::operator=(studentas&& other) noexcept {
     if (this != &other) {
-        vardas = std::move(other.vardas);
-        pavarde = std::move(other.pavarde);
+        zmogus::operator=(std::move(other));
         paz = std::move(other.paz);
         egz = other.egz;
         rez = other.rez;

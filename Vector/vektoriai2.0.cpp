@@ -26,11 +26,12 @@ int main() {
         cout << "3 - Generuoti testo failus, 1000 - 10 mln. irasu)\n";
         cout << "4 - Apdorojimo testas\n";
         cout << "5 - Strategiju lyginimas \n";
+        cout << "6 - Abstrakcios klases patikrinimas\n";
         cout << "0 - Baigti programa\n";
         cout << "Pasirinkimas: ";
         cin >> pasirinkimas;
 
-        switch (pasirinkimas) {
+       switch (pasirinkimas) {
             case 1:
                 try {
                     input(grupe);
@@ -48,9 +49,9 @@ int main() {
                 cout << "Iveskite studenta:\n";
                 cin >> s1;
                 
-                studentas s2 = s1; // Cop
+                studentas s2 = s1; 
                 studentas s3;
-                s3 = std::move(s1); // Mov
+                s3 = std::move(s1); 
                 
                 cout << "Stud3 (perkeltas is S1): " << s3 << endl;
                 cout << "Stud2 (kopija): " << s2 << endl;
@@ -70,50 +71,68 @@ int main() {
                 break;
 
             case 5: {
-    vector<int> kiekiai = {1000000, 10000000};
+                vector<int> kiekiai = {1000000, 10000000};
+                for (int kiekis : kiekiai) {
+                    string failas = std::to_string(kiekis) + ".txt";
+                    vector<studentas> pradine_grupe;
+                    try {
+                        skaitymas_rez(failas, pradine_grupe);
+                    } catch (...) {
+                        cout << "Nepavyko nuskaityti failo: " << failas << endl;
+                        continue;
+                    }
+                    std::cout << "\n--- REZULTATAI SU " << kiekis << " IRASU ---" << std::endl;
+                    {
+                        vector<studentas> grupe = pradine_grupe;
+                        vector<studentas> v1, k1;
+                        auto s = high_resolution_clock::now();
+                        strategija1(grupe, v1, k1);
+                        auto e = high_resolution_clock::now();
+                        std::cout << "1 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
+                    }
+                    {
+                        vector<studentas> grupe = pradine_grupe;
+                        vector<studentas> v2;
+                        auto s = high_resolution_clock::now();
+                        strategija2(grupe, v2);
+                        auto e = high_resolution_clock::now();
+                        std::cout << "2 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
+                    }
+                    {
+                        vector<studentas> grupe = pradine_grupe;
+                        vector<studentas> v3;
+                        auto s = high_resolution_clock::now();
+                        strategija3(grupe, v3);
+                        auto e = high_resolution_clock::now();
+                        std::cout << "3 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
+                    }
+                }
+                break;
+            } 
 
-    for (int kiekis : kiekiai) {
-        string failas = std::to_string(kiekis) + ".txt";
-        vector<studentas> pradine_grupe;
+            case 6: {
+                cout << "v1.5 testas\n";
 
-        try {
-            skaitymas_rez(failas, pradine_grupe);
-        } catch (...) {
-            cout << "Nepavyko nuskaityti failo: " << failas << endl;
-            continue;
-        }
+                // zmogus z;
 
-        std::cout << "\n--- REZULTATAI SU " << kiekis << " IRASU ---" << std::endl;
+                studentas s1;
+                s1.setVardas("Testas");
+                s1.setPavarde("TestasPav");
+                s1.setEgz(10);
+                s1.pridetiPazymi(8);
+                s1.skaiciuoti();
 
-        {
-            vector<studentas> grupe = pradine_grupe;
-            vector<studentas> v1, k1;
-            auto s = high_resolution_clock::now();
-            strategija1(grupe, v1, k1);
-            auto e = high_resolution_clock::now();
-            std::cout << "1 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
-        }
+                studentas s2 = s1;
+                studentas s3;
+                s3 = s1;
+                studentas s4 = std::move(s2);
+                studentas s5;
+                s5 = std::move(s3);
 
-        {
-            vector<studentas> grupe = pradine_grupe;
-            vector<studentas> v2;
-            auto s = high_resolution_clock::now();
-            strategija2(grupe, v2);
-            auto e = high_resolution_clock::now();
-            std::cout << "2 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
-        }
-
-        {
-            vector<studentas> grupe = pradine_grupe;
-            vector<studentas> v3;
-            auto s = high_resolution_clock::now();
-            strategija3(grupe, v3);
-            auto e = high_resolution_clock::now();
-            std::cout << "3 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
-        }
-    }
-    break;
-}
+                cout << "S4 move: " << s4 << endl;
+                cout << "V1.2 metodai veikia.\n";
+                break; 
+            } 
 
             case 0:
                 cout << "Programa baigiama.\n";
@@ -121,7 +140,7 @@ int main() {
 
             default:
                 cout << "Blogas pasirinkimas, bandykite dar karta.\n";
-        }
+        } 
     } while (pasirinkimas != 0);
 
     return 0;
