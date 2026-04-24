@@ -48,15 +48,14 @@ int main() {
                 cout << "Iveskite studenta:\n";
                 cin >> s1;
                 
-                studentas s2 = s1; // Cop
-                studentas s3;
-                s3 = std::move(s1); // Mov
+                studentas s2 (s1); // Copy constructor
+                studentas s3 (std::move(s1)); // Mov
                 
                 cout << "Stud3 (perkeltas is S1): " << s3 << endl;
                 cout << "Stud2 (kopija): " << s2 << endl;
                 break;
-            }
-
+            }//visus penkis rules tikrint reik. 
+//operatorius isvedimo ivedimo panaudot
             case 3:
                 cout << "Generuojami failai...\n";
                 failo_kurimo_testas(1000);
