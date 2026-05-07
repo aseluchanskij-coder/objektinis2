@@ -44,18 +44,35 @@ int main() {
                 break;
 
             case 2: {
+                cout << "\n1 Ivedimo operatorius" << endl;
                 studentas s1;
-                cout << "Iveskite studenta:\n";
                 cin >> s1;
+
+                cout << "\n2 Copy Constructor: " << endl;
+                studentas s2(s1); 
+                cout << "s2 (s1 kopija): " << s2 << endl;
+
+                cout << "\n3 Copy Assignment" << endl;
+                studentas s3;
+                s3 = s2; 
+                cout << "s3 priskirtas is s2: " << s3 << endl;
+
+                cout << "\n4 Move Constructor: " << endl;
+                studentas s4(std::move(s1)); 
+                cout << "s4 perkeltas is s1: " << s4 << endl;
+                cout << "s1 po perkelimo: [" << s1.getVardas() << "] egz: " << s1.getEgz() << endl;
+
+                cout << "\n5 Move Assigment:" << endl;
+                studentas s5;
+                s5 = std::move(s2); 
+                cout << "s5 perkeltas is s2: " << s5 << endl;
+                cout << "s2 po perkelimo: [" << s2.getVardas() << "] egz: " << s2.getEgz() << endl;
+
+                cout << "\n6 Isvedimo operatorius: " << endl;
+                cout << "s5 objektas: " << s5 << endl;
                 
-                studentas s2 (s1); // Copy constructor
-                studentas s3 (std::move(s1)); // Mov
-                
-                cout << "Stud3 (perkeltas is S1): " << s3 << endl;
-                cout << "Stud2 (kopija): " << s2 << endl;
                 break;
-            }//visus penkis rules tikrint reik. 
-//operatorius isvedimo ivedimo panaudot
+            }
             case 3:
                 cout << "Generuojami failai...\n";
                 failo_kurimo_testas(1000);

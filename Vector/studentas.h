@@ -14,7 +14,7 @@ private:
     std::string tipas;
 
 public:
-    studentas() : egz(0), rez(0.0) {}
+   studentas(std::string v = "", std::string p = "", std::vector<int> pz = {}, int e = 0, std::string t = "vid");
     ~studentas();
 
     studentas(const studentas& other);
