@@ -5,6 +5,11 @@
 
 using std::sort;
 
+studentas::studentas(std::string v, std::string p, std::vector<int> pz, int e, std::string t) 
+    : zmogus(v, p), paz(pz), egz(e), tipas(t) {
+    skaiciuoti();
+}
+
 studentas::~studentas() {
     paz.clear();
     egz = 0;
