@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vardas_0',['vardas',['../classzmogus.html#a2c39dc9e517b6de374b6fb32b0c38b55',1,'zmogus']]]
+  ['realloc_5fcount_0',['realloc_count',['../class_vector.html#ab2654426a7740ebb5bfb38e714ad2483',1,'Vector']]]
 ];

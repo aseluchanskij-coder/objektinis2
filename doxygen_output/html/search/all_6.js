@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['padalinti_5fstudentus_0',['padalinti_studentus',['../ivedimas__isvedimas_8cpp.html#a39ce0a15f8d76e14d9cb2a2f00b2538e',1,'padalinti_studentus(const std::vector&lt; studentas &gt; &amp;grupe, std::vector&lt; studentas &gt; &amp;vargsai, std::vector&lt; studentas &gt; &amp;kietuoliai):&#160;ivedimas_isvedimas.cpp'],['../ivedimas__isvedimas_8h.html#a39ce0a15f8d76e14d9cb2a2f00b2538e',1,'padalinti_studentus(const std::vector&lt; studentas &gt; &amp;grupe, std::vector&lt; studentas &gt; &amp;vargsai, std::vector&lt; studentas &gt; &amp;kietuoliai):&#160;ivedimas_isvedimas.cpp']]],
-  ['pagalbines_2ecpp_1',['pagalbines.cpp',['../pagalbines_8cpp.html',1,'']]],
-  ['pagalbines_2eh_2',['pagalbines.h',['../pagalbines_8h.html',1,'']]],
-  ['pagalmed_3',['pagalMed',['../studentas_8cpp.html#a54c329763cb94182c1947fbf0ff3ee56',1,'pagalMed(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp'],['../studentas_8h.html#a54c329763cb94182c1947fbf0ff3ee56',1,'pagalMed(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp']]],
-  ['pagalpavarde_4',['pagalPavarde',['../studentas_8cpp.html#adea24bbb0720f1e2cc7c205de6a40d14',1,'pagalPavarde(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp'],['../studentas_8h.html#adea24bbb0720f1e2cc7c205de6a40d14',1,'pagalPavarde(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp']]],
-  ['pagalrez_5',['pagalRez',['../studentas_8cpp.html#a22e68b865dc0051d57d843872ec6830d',1,'pagalRez(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp'],['../studentas_8h.html#a22e68b865dc0051d57d843872ec6830d',1,'pagalRez(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp']]],
-  ['pagalvarda_6',['pagalVarda',['../studentas_8cpp.html#a8e38218e267dad7890b66ecdd3f6d9aa',1,'pagalVarda(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp'],['../studentas_8h.html#a8e38218e267dad7890b66ecdd3f6d9aa',1,'pagalVarda(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp']]],
-  ['pagalvid_7',['pagalVid',['../studentas_8cpp.html#a2dad16e4156d164966c66ab49f8c73eb',1,'pagalVid(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp'],['../studentas_8h.html#a2dad16e4156d164966c66ab49f8c73eb',1,'pagalVid(const studentas &amp;a, const studentas &amp;b):&#160;studentas.cpp']]],
-  ['pavarde_8',['pavarde',['../classzmogus.html#a626bf57e5d97d98c8594f6682f1ac813',1,'zmogus']]],
-  ['pridetipazymi_9',['pridetiPazymi',['../classstudentas.html#aa24daac8121ef0dc110a7d67408dfa1e',1,'studentas']]]
+  ['getegz_0',['getEgz',['../classstudentas.html#ac0e514683b1825bd7a8ee077365f4214',1,'studentas']]],
+  ['getpavarde_1',['getPavarde',['../classzmogus.html#a802999a845a7fd3549a882f8b92a1381',1,'zmogus']]],
+  ['getpaz_2',['getPaz',['../classstudentas.html#ad3b8915092691c6217e80c9ef529cce3',1,'studentas']]],
+  ['getrez_3',['getRez',['../classstudentas.html#abfaa229484a848e938a560a4693db73f',1,'studentas']]],
+  ['gettipas_4',['getTipas',['../classstudentas.html#aa10d529dd03db06d886387bcafdc5284',1,'studentas']]],
+  ['getvardas_5',['getVardas',['../classzmogus.html#aa1272275f7aa39ee724a4d3d8223e3b1',1,'zmogus']]]
 ];

@@ -8,12 +8,11 @@
 #include <sstream>
 #include <stdexcept>
 #include <limits>
-#include <vector>
+#include "mano_std_vector.h"
 
 using std::cout;
 using std::cin;
 using std::string;
-using std::vector;
 using std::left;
 using std::setw;
 using std::endl;
@@ -21,7 +20,7 @@ using std::fixed;
 using std::setprecision;
 using std::sort;
 
-void skaitymas(const string &failo_pav, vector<studentas> &grupe) {
+void skaitymas(const string &failo_pav, Vector<studentas> &grupe) {
     std::ifstream failas("duomenys/" + failo_pav);
     if (!failas) {
         throw std::runtime_error("Nepavyko atidaryti failo!");
@@ -48,13 +47,13 @@ void skaitymas(const string &failo_pav, vector<studentas> &grupe) {
         A.setVardas(v);
         A.setPavarde(p);
 
-        vector<int> temp;
-        while (fs >> x) temp.push_back(x);
+        Vector<int> temp;
+        while (fs >> x) temp.PushBack(x);
 
         if (temp.size() < 2) continue;
 
         A.setEgz(temp.back());
-        temp.pop_back();
+        temp.PopBack();
 
         for (int paz : temp) {
             A.pridetiPazymi(paz);
@@ -63,14 +62,14 @@ void skaitymas(const string &failo_pav, vector<studentas> &grupe) {
 
         A.setTipas(tipas);
         A.skaiciuoti(sum);
-        grupe.push_back(A);
+        grupe.PushBack(A);
     }
 
     failas.close();
     cout << "Duomenys nuskaityti is failo!\n";
 }
 
-void skaitymas_rez(const string &failo_pav, vector<studentas> &grupe) {
+void skaitymas_rez(const string &failo_pav, Vector<studentas> &grupe) {
     std::ifstream failas("duomenys/" + failo_pav);
     if (!failas) {
         throw std::runtime_error("Nepavyko atidaryti failo!");
@@ -96,13 +95,13 @@ void skaitymas_rez(const string &failo_pav, vector<studentas> &grupe) {
         A.setRez(r);
         A.setTipas("vid");
 
-        grupe.push_back(A);
+        grupe.PushBack(A);
     }
 
     cout << "Rezultatai nuskaityti is failo!\n";
 }
 
-void input(vector<studentas> &grupe) {
+void input(Vector<studentas> &grupe) {
     while (true) {
         cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti viska, 4 - nuskaityti is failo,\n5 - nuskaityti sugeneruota faila, 6 - baigti: ";
         int menu = skaiciaus_nusk();
@@ -162,7 +161,7 @@ void input(vector<studentas> &grupe) {
                 A.setTipas(bendras_tipas);
 
                 A.skaiciuoti(sum);
-                grupe.push_back(A);
+                grupe.PushBack(A);
             }
             continue;
         }
@@ -233,22 +232,22 @@ void input(vector<studentas> &grupe) {
 
         A.setTipas(t);
         A.skaiciuoti(sum);
-        grupe.push_back(A);
+        grupe.PushBack(A);
     }
 }
 
-void padalinti_studentus(const std::vector<studentas> &grupe,
-                         std::vector<studentas> &vargsai,
-                         std::vector<studentas> &kietuoliai) {
+void padalinti_studentus(const Vector<studentas> &grupe,
+                         Vector<studentas> &vargsai,
+                         Vector<studentas> &kietuoliai) {
     for (const auto &A : grupe) {
         if (A.getRez() < 5.0)
-            vargsai.push_back(A);
+            vargsai.PushBack(A);
         else
-            kietuoliai.push_back(A);
+            kietuoliai.PushBack(A);
     }
 }
 
-void output(std::ostream &out, const std::vector<studentas> &grupe) {
+void output(std::ostream &out, const Vector<studentas> &grupe) {
     out << left << setw(20) << "Vardas"
         << left << setw(25) << "Pavarde"
         << setw(20) << "Galutinis(vid.)"
@@ -269,7 +268,7 @@ void output(std::ostream &out, const std::vector<studentas> &grupe) {
         }
     }
 }
-void rusiuotistud(vector<studentas> &grupe) {
+void rusiuotistud(Vector<studentas> &grupe) {
     if (grupe.empty()) return;
 
     if (grupe[0].getTipas() == "vid") {
@@ -278,3 +277,4 @@ void rusiuotistud(vector<studentas> &grupe) {
         sort(grupe.begin(), grupe.end(), pagalMed);
     }
 }
+//push_back

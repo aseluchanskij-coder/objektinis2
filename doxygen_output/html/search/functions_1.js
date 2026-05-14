@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['failo_5fkurimo_5ftestas_0',['failo_kurimo_testas',['../testavimas_8cpp.html#aafb81e12e3ec449be5c5bbb6ef9b7ccb',1,'failo_kurimo_testas(int kiek):&#160;testavimas.cpp'],['../testavimas_8h.html#aafb81e12e3ec449be5c5bbb6ef9b7ccb',1,'failo_kurimo_testas(int kiek):&#160;testavimas.cpp']]]
+  ['back_0',['back',['../class_vector.html#a6decf0bdeb6849bfcc151b2c514f639f',1,'Vector::back()'],['../class_vector.html#ae2094e298cbe0394557b9213942a31d1',1,'Vector::back() const']]],
+  ['begin_1',['begin',['../class_vector.html#a48330adb902d17d3fbed6e83fd58976f',1,'Vector::begin()'],['../class_vector.html#a43e6d258af863820f74ac2134381b086',1,'Vector::begin() const']]]
 ];

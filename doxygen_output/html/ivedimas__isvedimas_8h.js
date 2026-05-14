@@ -1,9 +1,9 @@
 var ivedimas__isvedimas_8h =
 [
-    [ "input", "ivedimas__isvedimas_8h.html#a67d7bb35600e7fcd1ed2852b61b3d3fc", null ],
-    [ "output", "ivedimas__isvedimas_8h.html#a1f680ebbd9f66486a017d9aed327ab21", null ],
-    [ "padalinti_studentus", "ivedimas__isvedimas_8h.html#a39ce0a15f8d76e14d9cb2a2f00b2538e", null ],
-    [ "rusiuotistud", "ivedimas__isvedimas_8h.html#ab1ae2b9802574f92598f283d2cef97a8", null ],
-    [ "skaitymas", "ivedimas__isvedimas_8h.html#a0fa32f7be6f5da7dccda401e74a9fb08", null ],
-    [ "skaitymas_rez", "ivedimas__isvedimas_8h.html#a49c4c2ea8ffc5c1c82e3f381357304e6", null ]
+    [ "input", "ivedimas__isvedimas_8h.html#ab3c4bcd3e3c461357989f76df0619078", null ],
+    [ "output", "ivedimas__isvedimas_8h.html#ae7b50aeea5d9217f0cfab7f0ee6a0110", null ],
+    [ "padalinti_studentus", "ivedimas__isvedimas_8h.html#a92f613f1e9cd28f6a46b8f0ffdb8b5d4", null ],
+    [ "rusiuotistud", "ivedimas__isvedimas_8h.html#ac0861ceb42b7d0e1d546c3754631ccb3", null ],
+    [ "skaitymas", "ivedimas__isvedimas_8h.html#a072c3960cc52a9922e9c09956275dd9a", null ],
+    [ "skaitymas_rez", "ivedimas__isvedimas_8h.html#ac489f446b26278eecdde5b84b554e066", null ]
 ];

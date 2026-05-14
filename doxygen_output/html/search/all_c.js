@@ -1,5 +1,23 @@
 var searchData=
 [
-  ['_7estudentas_0',['~studentas',['../classstudentas.html#a74b639e1a2ffe282686999b931eb4aaa',1,'studentas']]],
-  ['_7ezmogus_1',['~zmogus',['../classzmogus.html#a3724065579fd06b5bb842ddc1ead57a4',1,'zmogus']]]
+  ['setegz_0',['setEgz',['../classstudentas.html#a37edd4faf3307166572dc1b6d051550f',1,'studentas']]],
+  ['setpavarde_1',['setPavarde',['../classzmogus.html#a931b596ee096619748a96d5957ebf6d1',1,'zmogus']]],
+  ['setrez_2',['setRez',['../classstudentas.html#af59b277e5d5d95d7622ddf8ea3d96a92',1,'studentas']]],
+  ['settipas_3',['setTipas',['../classstudentas.html#a41fc51c4c1f2e22ea0561b75939e267f',1,'studentas']]],
+  ['setvardas_4',['setVardas',['../classzmogus.html#a6fd8af389c1dcfdf1799c69ea2d95a27',1,'zmogus']]],
+  ['size_5',['Size',['../class_vector.html#a40e7f1dfdfa1a9c74e3769b5802125a9',1,'Vector']]],
+  ['size_6',['size',['../class_vector.html#a9b439586cd10cb45d002ca9d6e3db43c',1,'Vector']]],
+  ['skaiciaus_5fnusk_7',['skaiciaus_nusk',['../pagalbines_8cpp.html#a29257f46d4db74d0b986cd24e990e9b2',1,'skaiciaus_nusk():&#160;pagalbines.cpp'],['../pagalbines_8h.html#a29257f46d4db74d0b986cd24e990e9b2',1,'skaiciaus_nusk():&#160;pagalbines.cpp']]],
+  ['skaiciuoti_8',['skaiciuoti',['../classstudentas.html#ae543e90c0395ecec0a47db3d8c281d02',1,'studentas']]],
+  ['skaitymas_9',['skaitymas',['../ivedimas__isvedimas_8cpp.html#aa0996a9fb2f3935db6c930e646dcc206',1,'skaitymas(const string &amp;failo_pav, Vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.cpp'],['../ivedimas__isvedimas_8h.html#a072c3960cc52a9922e9c09956275dd9a',1,'skaitymas(const std::string &amp;failo_pav, Vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.h']]],
+  ['skaitymas_5frez_10',['skaitymas_rez',['../ivedimas__isvedimas_8cpp.html#a20ae79c67641dd8d98e7fed6de19f5ac',1,'skaitymas_rez(const string &amp;failo_pav, Vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.cpp'],['../ivedimas__isvedimas_8h.html#ac489f446b26278eecdde5b84b554e066',1,'skaitymas_rez(const std::string &amp;failo_pav, Vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.h']]],
+  ['spartos_5fanalize_2ecpp_11',['spartos_analize.cpp',['../spartos__analize_8cpp.html',1,'']]],
+  ['strategija1_12',['strategija1',['../testavimas_8cpp.html#a3e2b39b3713fb23f5614e83ac36f7658',1,'strategija1(Vector&lt; studentas &gt; &amp;grupe, Vector&lt; studentas &gt; &amp;vargsai, Vector&lt; studentas &gt; &amp;kietuoliai):&#160;testavimas.cpp'],['../testavimas_8h.html#a3e2b39b3713fb23f5614e83ac36f7658',1,'strategija1(Vector&lt; studentas &gt; &amp;grupe, Vector&lt; studentas &gt; &amp;vargsai, Vector&lt; studentas &gt; &amp;kietuoliai):&#160;testavimas.cpp']]],
+  ['strategija2_13',['strategija2',['../testavimas_8cpp.html#a9fff76fb9c31fb20db56a1f4d91961b7',1,'strategija2(Vector&lt; studentas &gt; &amp;grupe, Vector&lt; studentas &gt; &amp;vargsai):&#160;testavimas.cpp'],['../testavimas_8h.html#a9fff76fb9c31fb20db56a1f4d91961b7',1,'strategija2(Vector&lt; studentas &gt; &amp;grupe, Vector&lt; studentas &gt; &amp;vargsai):&#160;testavimas.cpp']]],
+  ['strategija3_14',['strategija3',['../testavimas_8cpp.html#a8f63ea9a4fa62184f934ca8bf4ab63a0',1,'strategija3(Vector&lt; studentas &gt; &amp;grupe, Vector&lt; studentas &gt; &amp;vargsai):&#160;testavimas.cpp'],['../testavimas_8h.html#a8f63ea9a4fa62184f934ca8bf4ab63a0',1,'strategija3(Vector&lt; studentas &gt; &amp;grupe, Vector&lt; studentas &gt; &amp;vargsai):&#160;testavimas.cpp']]],
+  ['string_5fnusk_15',['string_nusk',['../pagalbines_8cpp.html#a85558220dac941fdb3a94f77bd8e8a72',1,'string_nusk(const string &amp;s):&#160;pagalbines.cpp'],['../pagalbines_8h.html#a85558220dac941fdb3a94f77bd8e8a72',1,'string_nusk(const string &amp;s):&#160;pagalbines.cpp']]],
+  ['studentas_16',['studentas',['../classstudentas.html',1,'studentas'],['../classstudentas.html#ae18c52bc0ce9960cd4fe765a87ce815b',1,'studentas::studentas(std::string v=&quot;&quot;, std::string p=&quot;&quot;, Vector&lt; int &gt; pz={}, int e=0, std::string t=&quot;vid&quot;)'],['../classstudentas.html#aa35e7c18fd1b6558d9da4c00c4389de4',1,'studentas::studentas(const studentas &amp;other)'],['../classstudentas.html#a0fc737678aee77843e00abbd82a3b79e',1,'studentas::studentas(studentas &amp;&amp;other) noexcept']]],
+  ['studentas_2ecpp_17',['studentas.cpp',['../studentas_8cpp.html',1,'']]],
+  ['studentas_2eh_18',['studentas.h',['../studentas_8h.html',1,'']]],
+  ['swap_19',['swap',['../class_vector.html#a04719915f34b27674e1eca2c42e48eb2',1,'Vector']]]
 ];

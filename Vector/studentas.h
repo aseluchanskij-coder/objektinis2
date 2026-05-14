@@ -2,7 +2,7 @@
 #define STUDENTAS_H
 
 #include <string>
-#include <vector>
+#include "mano_std_vector.h"
 #include <iostream>
 #include <utility>
 
@@ -31,13 +31,13 @@ inline zmogus::~zmogus() {}
 
 class studentas : public zmogus {
 private:
-    std::vector<int> paz;
+    Vector<int> paz;
     int egz;
     double rez;
     std::string tipas;
 
 public:
-    studentas(std::string v = "", std::string p = "", std::vector<int> pz = {}, int e = 0, std::string t = "vid");
+    studentas(std::string v = "", std::string p = "", Vector<int> pz = {}, int e = 0, std::string t = "vid");
     ~studentas();
 
     studentas(const studentas& other);
@@ -45,7 +45,7 @@ public:
     studentas(studentas&& other) noexcept;
     studentas& operator=(studentas&& other) noexcept;
 
-    const std::vector<int>& getPaz() const { return paz; }
+    const Vector<int>& getPaz() const { return paz; }
     int getEgz() const { return egz; }
     double getRez() const { return rez; }
     const std::string& getTipas() const { return tipas; }

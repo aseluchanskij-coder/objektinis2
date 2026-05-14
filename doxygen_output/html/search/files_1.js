@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pagalbines_2ecpp_0',['pagalbines.cpp',['../pagalbines_8cpp.html',1,'']]],
-  ['pagalbines_2eh_1',['pagalbines.h',['../pagalbines_8h.html',1,'']]]
+  ['mano_5fstd_5fvector_2eh_0',['mano_std_vector.h',['../mano__std__vector_8h.html',1,'']]]
 ];

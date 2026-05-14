@@ -5,7 +5,7 @@
 
 using std::sort;
 
-studentas::studentas(std::string v, std::string p, std::vector<int> pz, int e, std::string t) 
+studentas::studentas(std::string v, std::string p, Vector<int> pz, int e, std::string t) 
     : zmogus(v, p), paz(pz), egz(e), tipas(t) {
     skaiciuoti();
 }
@@ -32,7 +32,7 @@ void studentas::skaiciuoti(int isores_sum) {
     if (tipas == "vid") {
         skaicius = (double)tikroji_suma / paz.size();
     } else {
-        std::vector<int> temp_paz = paz; 
+        Vector<int> temp_paz = paz; 
         std::sort(temp_paz.begin(), temp_paz.end());
         int n = temp_paz.size();
         if (n % 2 == 0)

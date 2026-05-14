@@ -1,8 +1,7 @@
 #include "testavimas.h"
 #include "studentas.h"
 #include "ivedimas_isvedimas.h"
-
-#include <vector>
+#include "mano_std_vector.h"
 #include <fstream>
 #include <iostream>
 #include <chrono>
@@ -35,8 +34,8 @@ void failo_kurimo_testas(int kiek)
 
 
 void apdorojimo_testas(const string& failas) {
-    vector<studentas> grupe;
-    vector<studentas> vargsai, kietuoliai;
+    Vector<studentas> grupe;
+    Vector<studentas> vargsai, kietuoliai;
 
     cout << "\nPradedamas testas su failu: " << failas << endl;
 
@@ -69,28 +68,31 @@ void apdorojimo_testas(const string& failas) {
     output(f2, kietuoliai);
     f2.close();
 } 
-void strategija1(vector<studentas>& grupe, vector<studentas>& vargsai, vector<studentas>& kietuoliai) {
+void strategija1(Vector<studentas>& grupe, Vector<studentas>& vargsai, Vector<studentas>& kietuoliai) {
     for (const auto& s : grupe) {
         if (s.getRez() < 5.0) vargsai.push_back(s);
         else kietuoliai.push_back(s);
     }
 }
 
-//cia pataisiau
-void strategija2(vector<studentas>& grupe, vector<studentas>& vargsai){
+void strategija2(Vector<studentas>& grupe, Vector<studentas>& vargsai){
     sort(grupe.begin(), grupe.end(), pagalRez);
 
     while (!grupe.empty() && grupe.back().getRez() < 5.0) {
         vargsai.push_back(grupe.back());
-        grupe.pop_back();
+        grupe.PopBack();
     }
 }
 
-void strategija3(vector<studentas>& grupe, vector<studentas>& vargsai) {
+void strategija3(Vector<studentas>& grupe, Vector<studentas>& vargsai) {
     auto it = std::stable_partition(grupe.begin(), grupe.end(), [](const studentas& s) {
-        return s.getRez() >= 5.0;
+        return s.getRez() >= 5.0; 
     });
+    for (auto i = it; i != grupe.end(); ++i) {
+        vargsai.PushBack(*i);
+    }
 
-    vargsai.assign(it, grupe.end());
-    grupe.erase(it, grupe.end());
+    while (grupe.end() != it) {
+        grupe.PopBack();
+    }
 }

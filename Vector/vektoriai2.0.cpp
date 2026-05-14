@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include "mano_std_vector.h"
 #include <chrono>
 #include <ctime>
 #include <iomanip>
@@ -13,10 +13,9 @@ using namespace std::chrono;
 using std::cout;
 using std::cin;
 using std::endl;
-using std::vector;
 using std::string;
 int main() {
-    vector<studentas> grupe;
+    Vector<studentas> grupe;
     int pasirinkimas;
 
     do {
@@ -36,7 +35,7 @@ int main() {
                 try {
                     input(grupe);
                     if (!grupe.empty()) {
-                        sort(grupe.begin(), grupe.end(), pagalRez);
+                        std::sort(grupe.begin(), grupe.end(), pagalRez);
                         output(cout, grupe);
                     }
                 } catch (const std::exception &e) {
@@ -88,10 +87,12 @@ int main() {
                 break;
 
             case 5: {
-                vector<int> kiekiai = {1000000, 10000000};
+                Vector<int> kiekiai;
+                kiekiai.push_back(1000000);
+                kiekiai.push_back(10000000);
                 for (int kiekis : kiekiai) {
                     string failas = std::to_string(kiekis) + ".txt";
-                    vector<studentas> pradine_grupe;
+                    Vector<studentas> pradine_grupe;
                     try {
                         skaitymas_rez(failas, pradine_grupe);
                     } catch (...) {
@@ -100,24 +101,24 @@ int main() {
                     }
                     std::cout << "\n--- REZULTATAI SU " << kiekis << " IRASU ---" << std::endl;
                     {
-                        vector<studentas> grupe = pradine_grupe;
-                        vector<studentas> v1, k1;
+                        Vector<studentas> grupe = pradine_grupe;
+                        Vector<studentas> v1, k1;
                         auto s = high_resolution_clock::now();
                         strategija1(grupe, v1, k1);
                         auto e = high_resolution_clock::now();
                         std::cout << "1 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
                     }
                     {
-                        vector<studentas> grupe = pradine_grupe;
-                        vector<studentas> v2;
+                        Vector<studentas> grupe = pradine_grupe;
+                        Vector<studentas> v2;
                         auto s = high_resolution_clock::now();
                         strategija2(grupe, v2);
                         auto e = high_resolution_clock::now();
                         std::cout << "2 Strategija: " << std::fixed << std::setprecision(5) << duration<double>(e - s).count() << " s" << std::endl;
                     }
                     {
-                        vector<studentas> grupe = pradine_grupe;
-                        vector<studentas> v3;
+                        Vector<studentas> grupe = pradine_grupe;
+                        Vector<studentas> v3;
                         auto s = high_resolution_clock::now();
                         strategija3(grupe, v3);
                         auto e = high_resolution_clock::now();

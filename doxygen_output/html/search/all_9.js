@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['testavimas_2ecpp_0',['testavimas.cpp',['../testavimas_8cpp.html',1,'']]],
-  ['testavimas_2eh_1',['testavimas.h',['../testavimas_8h.html',1,'']]]
+  ['operator_3c_3c_0',['operator&lt;&lt;',['../classstudentas.html#a8be48cef898cea4aceee5d689f006274',1,'studentas::operator&lt;&lt;()'],['../studentas_8cpp.html#a8be48cef898cea4aceee5d689f006274',1,'operator&lt;&lt;():&#160;studentas.cpp']]],
+  ['operator_3d_1',['operator=',['../class_vector.html#a2fe37b54a47d28015829196cb5abec05',1,'Vector::operator=(const Vector &amp;other)'],['../class_vector.html#ac7a5d1c7410208d7ce8f13497e31dd87',1,'Vector::operator=(Vector &amp;&amp;other) noexcept'],['../classzmogus.html#ab81f2cffd6cc6fbebf1cc1f0a790a6fe',1,'zmogus::operator=(const zmogus &amp;other)=default'],['../classzmogus.html#ad02ba3976e862750a8a8c5a86be8e6d2',1,'zmogus::operator=(zmogus &amp;&amp;other) noexcept=default'],['../classstudentas.html#a1e06d5df5c12d5abcc50c71d5fc74dc2',1,'studentas::operator=(const studentas &amp;other)'],['../classstudentas.html#a8624e31ed245a1ecf6ad68e0141b2cd1',1,'studentas::operator=(studentas &amp;&amp;other) noexcept']]],
+  ['operator_3e_3e_2',['operator&gt;&gt;',['../classstudentas.html#a4e35fdbcaa912f9dcbb661afbe72f00b',1,'studentas::operator&gt;&gt;()'],['../studentas_8cpp.html#a4e35fdbcaa912f9dcbb661afbe72f00b',1,'operator&gt;&gt;():&#160;studentas.cpp']]],
+  ['operator_5b_5d_3',['operator[]',['../class_vector.html#a63cc62738d6c877aed773260d1f5d925',1,'Vector::operator[](size_t index) const'],['../class_vector.html#a314b19cea6ad9ce76457e24ac8264bd8',1,'Vector::operator[](size_t index)']]],
+  ['output_4',['output',['../ivedimas__isvedimas_8cpp.html#ae7b50aeea5d9217f0cfab7f0ee6a0110',1,'output(std::ostream &amp;out, const Vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.cpp'],['../ivedimas__isvedimas_8h.html#ae7b50aeea5d9217f0cfab7f0ee6a0110',1,'output(std::ostream &amp;out, const Vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.cpp']]]
 ];

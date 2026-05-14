@@ -2,16 +2,14 @@
 #define IVEDIMAS_ISVEDIMAS_H
 
 #include "studentas.h"
-#include <vector>
+#include "mano_std_vector.h"
 #include <ostream>
 #include <string>
 
-using std::vector;
-//////////////void output(std::ostream &out, const vector<studentas> &grupe);
-void input(vector<studentas> &grupe);
-void output(std::ostream &out, const vector<studentas> &grupe);
-void rusiuotistud(vector<studentas> &grupe);
-void skaitymas(const std::string &failo_pav, vector<studentas> &grupe);
-void skaitymas_rez(const std::string &failo_pav, vector<studentas> &grupe);
-void padalinti_studentus(const std::vector<studentas> &grupe, std::vector<studentas> &vargsai, std::vector<studentas> &kietuoliai);
+void input(Vector<studentas> &grupe);
+void output(std::ostream &out, const Vector<studentas> &grupe);
+void rusiuotistud(Vector<studentas> &grupe);
+void skaitymas(const std::string &failo_pav, Vector<studentas> &grupe);
+void skaitymas_rez(const std::string &failo_pav, Vector<studentas> &grupe);
+void padalinti_studentus(const Vector<studentas> &grupe, Vector<studentas> &vargsai, Vector<studentas> &kietuoliai);
 #endif

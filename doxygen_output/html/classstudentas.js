@@ -1,11 +1,11 @@
 var classstudentas =
 [
-    [ "studentas", "classstudentas.html#a1559a65608cb629e17095ed40e4ce259", null ],
+    [ "studentas", "classstudentas.html#ae18c52bc0ce9960cd4fe765a87ce815b", null ],
     [ "~studentas", "classstudentas.html#a74b639e1a2ffe282686999b931eb4aaa", null ],
     [ "studentas", "classstudentas.html#aa35e7c18fd1b6558d9da4c00c4389de4", null ],
     [ "studentas", "classstudentas.html#a0fc737678aee77843e00abbd82a3b79e", null ],
     [ "getEgz", "classstudentas.html#ac0e514683b1825bd7a8ee077365f4214", null ],
-    [ "getPaz", "classstudentas.html#a0637d4d3a139ce43dc407e903c5e5bc2", null ],
+    [ "getPaz", "classstudentas.html#ad3b8915092691c6217e80c9ef529cce3", null ],
     [ "getRez", "classstudentas.html#abfaa229484a848e938a560a4693db73f", null ],
     [ "getTipas", "classstudentas.html#aa10d529dd03db06d886387bcafdc5284", null ],
     [ "operator=", "classstudentas.html#a1e06d5df5c12d5abcc50c71d5fc74dc2", null ],

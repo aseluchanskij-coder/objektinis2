@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['input_0',['input',['../ivedimas__isvedimas_8cpp.html#a67d7bb35600e7fcd1ed2852b61b3d3fc',1,'input(vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.cpp'],['../ivedimas__isvedimas_8h.html#a67d7bb35600e7fcd1ed2852b61b3d3fc',1,'input(vector&lt; studentas &gt; &amp;grupe):&#160;ivedimas_isvedimas.cpp']]]
+  ['data_0',['data',['../class_vector.html#a641a765cb13d9e9ff8f9bc4e5a375c9b',1,'Vector::data()'],['../class_vector.html#adf2019fbfec16aeea3150a48e0c773ee',1,'Vector::data() const']]]
 ];

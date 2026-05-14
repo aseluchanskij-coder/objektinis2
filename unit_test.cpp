@@ -1,86 +1,100 @@
-#include <iostream>
-#include <cassert>
-#include <vector>
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest.h"
+#include "mano_std_vector.h"
 #include "Vector/studentas.h"
+#include <iostream>
+
 using std::cout;
-void testuoti_rule_of_five() {
-                cout << "\n1 Ivedimo operatorius" << std::endl;
-                studentas s1;
-                std::cin >> s1;
-                std::string originalusVardas = s1.getVardas();
-                double originalusEgz = s1.getEgz();
 
-                cout << "\n2 Copy Constructor: " << std::endl;
-                studentas s2(s1); 
-                assert(s2.getVardas() == s1.getVardas());
-                assert(s2.getEgz() == s1.getEgz());
-                cout << "s2 (s1 kopija): " << s2 << std::endl;
-
-                cout << "\n3 Copy Assignment" << std::endl;
-                studentas s3;
-                s3 = s2; 
-                assert(s3.getVardas() == s2.getVardas());
-                assert(s3.getEgz() == s2.getEgz());
-                cout << "s3 priskirtas is s2: " << s3 << std::endl;
-
-                cout << "\n4 Move Constructor: " << std::endl;
-                studentas s4(std::move(s1)); 
-                assert(s4.getVardas() == originalusVardas);
-                assert(s4.getEgz() == originalusEgz);
-                cout << "s4 perkeltas is s1: " << s4 << std::endl;
-                cout << "s1 po perkelimo: [" << s1.getVardas() << "] egz: " << s1.getEgz() << std::endl;
-
-                cout << "\n5 Move Assigment:" << std::endl;
-                studentas s5;
-                s5 = std::move(s2); 
-                assert(s5.getVardas() == originalusVardas);
-                assert(s5.getEgz() == originalusEgz);
-                cout << "s5 perkeltas is s2: " << s5 << std::endl;
-                cout << "s2 po perkelimo: [" << s2.getVardas() << "] egz: " << s2.getEgz() << std::endl;
-
-                cout << "\n6 Isvedimo operatorius: " << std::endl;
-                cout << "s5 objektas: " << s5 << std::endl;
-                
-                cout << "\nVISI ASSERT TESTAI PRAEITI SEKMINGAI!" << std::endl;
-}      
-void test_be_paz() {
-    cout << "Tikrinamas studentas be pazymiu:" << std::endl;
-    
+TEST_CASE("Tikrinamas studentas be pazymiu") {
     studentas s("Vardas", "Pavarde"); 
-    
-    
-    assert(s.getEgz() == 0); 
-    
-    cout << "Studentas be pazymiu apdorotas." << std::endl;
+    CHECK(s.getEgz() == 0);
+    CHECK(s.getPaz().size() == 0);
 }
-void test_skaiciavimas() {
-    cout << "Tikrinamas rezultato skaiciavimas: " << std::endl;
-    
-    std::vector<int> p = {10, 8, 9, 7, 6}; 
+
+TEST_CASE("Tikrinamas rezultato skaiciavimas") {
+    Vector<int> p;
+    p.push_back(10);
+    p.push_back(8);
+    p.push_back(9);
+    p.push_back(7);
+    p.push_back(6);
     int egz = 10;
     
     studentas s("Test", "Logika", p, egz);
     
     double rezultatas = s.getRez(); 
-    assert(rezultatas > 9.19 && rezultatas < 9.21);
-    
-    cout << "Skaiciavimo logika teisinga." << std::endl;
+    CHECK(rezultatas == doctest::Approx(9.2)); 
 }
 
-int main() {
-    try {
-        cout << "Testavimas\n";
-        test_be_paz();
-        test_skaiciavimas();
-        cout << "---------------------------------------\n\n";
+TEST_CASE("Studento klases Rule of Five testas") {
+    Vector<int> p;
+    p.push_back(10);
+    studentas s1("Jonas", "Jonaitis", p, 10);
+    
+    std::string originalusVardas = s1.getVardas();
+    double originalusEgz = s1.getEgz();
 
-        testuoti_rule_of_five();
-
-        cout << "\nPenkiu taisykle veikia" << std::endl;
-        
-    } catch (const std::exception& e) {
-        std::cerr << "Klaida testavimo metu: " << e.what() << std::endl;
-        return 1;
+    SUBCASE("Copy Constructor") {
+        studentas s2(s1); 
+        CHECK(s2.getVardas() == s1.getVardas());
+        CHECK(s2.getEgz() == s1.getEgz());
     }
-    return 0;
+
+    SUBCASE("Copy Assignment") {
+        studentas s3;
+        s3 = s1; 
+        CHECK(s3.getVardas() == s1.getVardas());
+        CHECK(s3.getEgz() == s1.getEgz());
+    }
+
+    SUBCASE("Move Constructor") {
+        studentas s4(std::move(s1)); 
+        CHECK(s4.getVardas() == originalusVardas);
+        CHECK(s4.getEgz() == originalusEgz);
+    }
+
+    SUBCASE("Move Assignment") {
+        studentas s2_temp("Pakeistas", "Pakeistas", p, 5);
+        studentas s5;
+        s5 = std::move(s2_temp); 
+        CHECK(s5.getVardas() == "Pakeistas");
+        CHECK(s5.getEgz() == 5);
+    }
+}
+TEST_CASE("Vector baziniu metodu testas") {
+    Vector<int> v;
+    
+    SUBCASE("Pradines busenos tikrinimas") {
+        CHECK(v.size() == 0);
+        CHECK(v.capacity() == 2);
+    }
+    
+    SUBCASE("PushBack ir talpos didejimas") {
+        v.push_back(1);
+        v.push_back(2);
+        CHECK(v.size() == 2);
+        CHECK(v.capacity() >= 2);
+        CHECK(v[0] == 1);
+        CHECK(v[1] == 2);
+    }
+    
+    SUBCASE("PopBack ir Clear") {
+        v.PushBack(10);
+        v.PopBack();
+        CHECK(v.size() == 0);
+        
+        v.push_back(5);
+        v.clear();
+        CHECK(v.size() == 0);
+    }
+}
+TEST_CASE("Vector elementu pasiekiamumas") {
+    Vector<int> v;
+    v.push_back(100);
+    v.push_back(200);
+    
+    CHECK(v[0] == 100);
+    v[0] = 500;
+    CHECK(v[0] == 500);
 }
